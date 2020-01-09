@@ -11,7 +11,7 @@ SCOPES = ['https://www.googleapis.com/auth/drive']
 config = None
 
 def upload(filename):
-  with open('config.json', encoding='utf-8') as json_file:
+  with open('/etc/driveby.json', encoding='utf-8') as json_file:
     config = json.loads(json_file.read())
 
   creds = None
