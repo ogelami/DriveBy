@@ -1,6 +1,6 @@
 {
-  "destinationFolderId": "",
-  "tokenPath": "/tmp/token.pickle",
-  "credentials": {
-  }
+  "parentFolderId": "1yIKXxWnGBaX6ipD-Qfc9M1oKvjg18EJb",
+  "clientSecretPath": "etc/client_secret_515062998086-cfsj9e2rrfevascp7f5m7abq46r1eds7.apps.googleusercontent.com.json",
+  "serviceAccountSecretPath": "etc/forward-development-264707-0b7c3144c37e.json",
+  "tokenPath": "/tmp/token.pickle"
 }
