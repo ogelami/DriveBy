@@ -12,16 +12,16 @@ backupParser = subparsers.add_parser('backup', help='')
 backupParser.add_argument('file', default=1, metavar='FILE', help='Name of the file to upload')
 
 dumpParser = subparsers.add_parser('dump', help='')
-dumpParser.add_argument('-f', dest='config', default='/etc/driveby/config.json', help='filter MIME type')
+#dumpParser.add_argument('-f', dest='config', default='/etc/driveby/config.json', help='filter MIME type')
 
 removeParser = subparsers.add_parser('remove', help='')
-removeParser.add_argument('-d', dest='dump', action='store_true', help='Specify config file')
+removeParser.add_argument('file', nargs='+', default=1, metavar='FILE', help='id of the file you wish to remove')
 
 args = parser.parse_args()
 
 os.environ['DRIVEBY_CONFIG_PATH'] = args.config
 
-from DriveBy import backup, dump
+from DriveBy import backup, dump, remove
 
 if args.command == 'backup':
   print(backup(args.file))
@@ -30,4 +30,5 @@ elif args.command == 'dump':
   print(dump())
   pass
 elif args.command == 'remove':
+  print(remove(args.file))
   pass

@@ -50,7 +50,7 @@ def backup(filename):
 
 def dump():
   results = service.files().list(
-    pageSize=10, fields="nextPageToken, files(id, name)").execute()
+    pageSize=10, fields="nextPageToken, files(name, id, parents, webContentLink)").execute()
   items = results.get('files', [])
 
   if not items:
@@ -58,9 +58,11 @@ def dump():
   else:
     print('Files:')
     for item in items:
-      print(u'{0} ({1})'.format(item['name'], item['id']))
+      print(json.dumps(item, indent=2))
+      print("\n")
 
-def delete(filename):
-  return
+def remove(fileIds):
+  for fileId in fileIds:
+    service.files().delete(fileId=fileId).execute()  
 
 service = init()
