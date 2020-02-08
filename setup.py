@@ -4,8 +4,8 @@ import os, sys
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
-if sys.version_info < (3,4):
-  sys.exit('Python >= 3.4 is required')
+if sys.version_info < (3,7):
+  sys.exit('Python >= 3.7 is required')
 
 setup(name='DriveBy',
   version='0.1',
@@ -20,6 +20,7 @@ setup(name='DriveBy',
   packages=['DriveBy'],
   zip_safe=False,
   install_requires=[
+    'google-auth',
     'google-api-python-client',
     'google-auth-httplib2',
     'google-auth-oauthlib'])
